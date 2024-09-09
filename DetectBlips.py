@@ -1,4 +1,3 @@
-import datetime
 import os
 import subprocess
 from pydub import AudioSegment
@@ -43,14 +42,14 @@ def detect_audio_activity(audio_file_path, in_time=None, out_time=None, fps=25, 
     # Load the audio file using pydub
     audio = AudioSegment.from_file(audio_file_path)
     
-    # # Set default in_time and out_time if not provided
-    # if in_time is None:
-    #     in_time = 0
-    # if out_time is None:
-    #     out_time = len(audio) / 1000.0  # Convert milliseconds to seconds
+    # Set default in_time and out_time if not provided
+    if in_time is None:
+        in_time = 0
+    if out_time is None:
+        out_time = len(audio) / 1000.0  # Convert milliseconds to seconds
     
-    # # Slice the audio to the specified range
-    # audio = audio[in_time * 1000:out_time * 1000]  # Convert seconds to milliseconds
+    # Slice the audio to the specified range
+    audio = audio[in_time * 1000:out_time * 1000]  # Convert seconds to milliseconds
     
     # Analyze in chunks and detect where the audio is above the threshold
     active_timestamps = []
