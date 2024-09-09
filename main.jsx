@@ -16,23 +16,23 @@ function runPythonScript(args, projectPath, inPoint, outPoint) {
     argsFile.write('"' + projectPath + '"');
     argsFile.write(" --in_time " + inPoint.seconds);
     argsFile.write(" --out_time " + outPoint.seconds);
-    argsFile.write(" --threshold -30 ");
+    argsFile.write(" --threshold -50 ");
     argsFile.write(" --chunk_size 1");
     argsFile.write(" --fps 60");
     argsFile.close();
-
+    $.sleep(1000);
     // TODO: Change this to *not* be hard-coded
     var script = new File("~/Desktop/PremiereBlippr/pythonlauncher.bat");
     // Execute and wait for the script to finish
-    var output = script.execute();
+    script.execute();
     // wait until a file called timestamps.json is created
-    while (!File(projectPath + "/timestamps.json").exists) {
+    while (!File("~/Desktop/PremiereBlippr/timestamps.json").exists) {
         $.sleep(1000);
     }
     argsFile.remove();
     // Load the list from timestamps.json
     var timestamps = [];
-    var timestampsFile = new File(projectPath + "/timestamps.json");
+    var timestampsFile = new File("~/Desktop/PremiereBlippr/timestamps.json");
     timestampsFile.open("r");
     timestamps = timestampsFile.read();
     // convert the JSON string to a JavaScript object list
