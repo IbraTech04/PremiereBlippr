@@ -23,12 +23,15 @@ Due to ExtendScript's limitations, this script **cannot** work standalone. It re
 
 ### Step 0: Clone the Repository
 
-### Step 1: Python Setup
+### Step 1: FFMPEG 
+This project relies heavily on FFMPEG, so make sure you've installed it from [the official website](https://www.ffmpeg.org/), **and have added the `bin` directory to PATH**
+
+### Step 2: Python Setup
 
 1. Install Python 3.9 or later from [here](https://www.python.org/downloads/). This script was developed and tested with Python 3.10.11, though any version 3.9 or later should work.
 2. Install the required Python packages by running `pip install -r requirements.txt` in the terminal. This will install the required packages for the Python script to run.
 
-### Step 2: ExtendScript Setup
+### Step 3: ExtendScript Setup
 
 1. Open Premiere Pro and create a new project.
 2. Install the ExtendScript extensions for Visual Studio Code from [here](https://marketplace.visualstudio.com/items?itemName=Adobe.extendscript-debug).
